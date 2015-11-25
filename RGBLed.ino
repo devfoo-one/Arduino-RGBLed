@@ -38,7 +38,8 @@ class rgbLed {
         float oldRed = m_red;
         float oldGreen = m_green;
         float oldBlue = m_blue;
-      for(float t = 0.0f; t<= 1.0f; t += 0.01f) {
+      for(int i=0; i<= 100; i++) {
+        float t = float(i) / 100.f;
         float newRed = (1.0f - t) * oldRed + t * red;
         float newGreen = (1.0f - t) * oldGreen + t * green;
         float newBlue = (1.0f - t) * oldBlue + t * blue;
@@ -49,15 +50,19 @@ class rgbLed {
 };
 
 rgbLed led1 = rgbLed(11, 10, 9, 1.0f, 0.2f, 1.0f);
+rgbLed led2 = rgbLed(6, 5, 3, 1.0f, 0.2f, 1.0f);
+
 
 void setup() { }
 
 void loop() {  
-  for(float i = 0.0f; i <= 2.0f; i += 0.01f) {
-    float red = max(min(cos(PI * i) + 0.5f, 1), 0);
-    float green = max(min(cos(PI * i - 2.1f) + 0.5f, 1), 0);
-    float blue = max(min(cos(PI * i - 4.2f) + 0.5f, 1), 0);
+  for(int i = 0; i <= 200; i++) {
+    float a = float(i) / 100.f;
+    float red = max(min(cos(PI * a) + 0.5f, 1), 0); //use map() ?
+    float green = max(min(cos(PI * a - 2.1f) + 0.5f, 1), 0); //use map() ?
+    float blue = max(min(cos(PI * a - 4.2f) + 0.5f, 1), 0); //use map() ?
     led1.setColor(red, green, blue);
     delay(10);
   }
 }
+
