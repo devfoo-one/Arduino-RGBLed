@@ -58,9 +58,9 @@ void setup() { }
 void loop() {  
   for(int i = 0; i <= 200; i++) {
     float a = float(i) / 100.f;
-    float red = max(min(cos(PI * a) + 0.5f, 1), 0); //use map() ?
-    float green = max(min(cos(PI * a - 2.1f) + 0.5f, 1), 0); //use map() ?
-    float blue = max(min(cos(PI * a - 4.2f) + 0.5f, 1), 0); //use map() ?
+    float red = constrain(cos(PI * a) + 0.5f, 0, 1);
+    float green = constrain(cos(PI * a - 2.1f) + 0.5f, 0, 1);
+    float blue = constrain(cos(PI * a - 4.2f) + 0.5f, 0, 1);
     led1.setColor(red, green, blue);
     delay(10);
   }
