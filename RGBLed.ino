@@ -58,10 +58,14 @@ void setup() { }
 void loop() {  
   for(int i = 0; i <= 200; i++) {
     float a = float(i) / 100.f;
-    float red = constrain(cos(PI * a) + 0.5f, 0, 1);
-    float green = constrain(cos(PI * a - 2.1f) + 0.5f, 0, 1);
-    float blue = constrain(cos(PI * a - 4.2f) + 0.5f, 0, 1);
-    led1.setColor(red, green, blue);
+    float red1 = constrain(cos(PI * a) + 0.5f, 0, 1);
+    float red2 = constrain(cos(PI * (a + 0.2f)) + 0.5f, 0, 1);
+    float green1 = constrain(cos(PI * a - 2.1f) + 0.5f, 0, 1);
+    float green2 = constrain(cos(PI * (a + 0.2f) - 2.1f) + 0.5f, 0, 1);
+    float blue1 = constrain(cos(PI * a - 4.2f) + 0.5f, 0, 1);
+    float blue2 = constrain(cos(PI * (a + 0.2f) - 4.2f) + 0.5f, 0, 1);
+    led1.setColor(red1, green1, blue1);
+    led2.setColor(red2, green2, blue2);
     delay(10);
   }
 }
